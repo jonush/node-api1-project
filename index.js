@@ -1,8 +1,10 @@
 const express = require('express');
 const shortid = require('shortid');
+const cors = require('cors');
 
 const server = express();
 server.use(express.json());
+server.use(cors());
 
 let users = [
   {
@@ -25,7 +27,7 @@ server.get('/', (req,res) => {
 // GET request to '/api/users'
 server.get('/api/users', (req,res) => {
   if(users) {
-    res.status(200).json(users);
+    res.json(users);
   }
   else {
     res.status(500).json({ errorMessage: "The users information could not be retrieved" });
