@@ -6,6 +6,8 @@ const server = express();
 server.use(express.json());
 server.use(cors());
 
+// shortid.generate()
+
 let users = [
   {
     id: shortid.generate(),
@@ -54,7 +56,7 @@ server.get('/api/users/:id', (req,res) => {
   let id = req.params.id;
   if(id) {
     search = [];
-    users.map(user => user.id === Number(id) ? search.push(user) : null);
+    users.map(user => user.id === id ? search.push(user) : null);
     if(search.length < 1) {
       res.status(404).json({ message: "The user with the specified ID does not exist." });
     }
@@ -71,7 +73,7 @@ server.get('/api/users/:id', (req,res) => {
 server.delete('/api/users/:id', (req,res) => {
   let id = req.params.id;
   if(id) {
-    users = users.filter(user => user.id !== Number(id));
+    users = users.filter(user => user.id !== id);
     if(users.length < 1) {
       res.status(404).json({ message: "The user with the specified ID does not exist." });
     }
@@ -90,7 +92,7 @@ server.patch('/api/users/:id', (req,res) => {
   let update = req.body;
   if(id) {
     search = [];
-    users.map(user => user.id === Number(id) ? search.push(user) : null);
+    users.map(user => user.id === id ? search.push(user) : null);
     if(search.length < 1) {
       res.status(404).json({ message: "The user with the specified ID does not exist." });
     }

@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
+import shortid from 'shortid';
 import axios from 'axios';
 import './App.css';
 
 const initialUser = {
+  id: shortid.generate(),
   name: '',
   bio: ''
 };
 
-function UserForm() {
+const UserForm = ({ fetchUsers }) => {
   const [ user, setUser ] = useState(initialUser);
 
   const handleInput = e => {
@@ -21,7 +23,10 @@ function UserForm() {
     e.preventDefault();
     axios
       .post('http://localhost:3000/api/users', user)
-      .then(res => console.log('POST request for user', res))
+      .then(res => {
+        console.log('POST request for user', res);
+        fetchUsers();
+      })
       .catch(err => console.log(err));
     setUser(initialUser);
   }

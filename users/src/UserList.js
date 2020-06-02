@@ -4,23 +4,7 @@ import UserForm from "./UserForm";
 import axios from "axios";
 import "./App.css";
 
-function UserList() {
-  const [users, setUsers] = useState([]);
-  const { id } = useParams();
-
-  useEffect(() => {
-    fetchUsers();
-  }, []);
-
-  const fetchUsers = () => {
-    axios
-      .get("http://localhost:3000/api/users")
-      .then((res) => {
-        setUsers(res.data);
-        console.log("GET request for users");
-      })
-      .catch((err) => console.log(err));
-  };
+const UserList = ({ users }) => {
 
   return (
     <>
