@@ -1,0 +1,67 @@
+.App {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 4rem;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 300px;
+}
+
+.user {
+  background: rgb(179, 179, 179);
+  border-radius: 20px;
+  margin: 1rem;
+  padding: 1rem 2rem;
+}
+
+.create {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  background: royalblue;
+  color: white;
+  font-size: 1.2rem;
+  padding: 1rem 2rem;
+  margin-top: 1rem;
+  width: 300px;
+}
+
+button:hover {
+  cursor: pointer;
+  background: rgb(30, 63, 160);
+}
+
+input {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  border: none;
+  color: black;
+  margin: 1rem;
+  background: rgb(187, 189, 191);
+}
